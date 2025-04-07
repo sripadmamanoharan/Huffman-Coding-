@@ -1,0 +1,24 @@
+# Compiler
+CXX = g++
+# Compiler flags
+CXXFLAGS = -std=c++11 -Wall -Wextra
+
+# Directories
+SRC_DIR = src
+BIN_DIR = bin
+
+# Source files
+MAIN_SRC = $(SRC_DIR)/main.cpp
+
+# Executable
+MAIN_EXE = $(BIN_DIR)/decompress
+
+all: $(MAIN_EXE)
+
+$(MAIN_EXE): $(MAIN_SRC)
+	$(CXX) $(CXXFLAGS) $(MAIN_SRC) -o $(MAIN_EXE)
+
+clean:
+	rm -f $(BIN_DIR)/*
+
+.PHONY: all clean
