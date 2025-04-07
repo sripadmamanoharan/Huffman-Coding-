@@ -1,61 +1,91 @@
-Huffman Coding – Final Project
-Lossless Text Compression & Decompression using C++
+#  Huffman Coding – Lossless Text Compression Project
 
-Overview
-This project implements the Huffman Coding algorithm for compressing and decompressing text files. It is a lossless data compression method where frequently occurring characters are assigned shorter binary codes.
+**Final Project | Indiana State University**  
+**By:** Shri Padmavathi Manoharan & Venkata Parupudi
 
-Built using C++, the project includes two main modules:
+---
 
-Compression
+## Overview
 
-Decompression
+This project implements **Huffman Coding**, a well-known algorithm for **lossless data compression**. The main objective is to compress and decompress large text files efficiently using **C++**, applying frequency-based binary encoding for characters.
 
-Execution was done on:
+The project is executed on both **macOS (Xcode)** and **Linux (CentOS on Google Cloud VM)** environments.
 
-macOS using Xcode
+---
 
-Linux (CentOS) on Google Cloud Platform (GCP)
+## Features
 
-Features
-Calculates character frequencies in the input file
+- Character frequency calculation  
+- Huffman Tree construction  
+- Binary code generation for each character  
+- Text compression into `.hzip` file format  
+- Decompression to recover original text  
+- Supports large files  
+- Runs on macOS and Linux
 
-Builds a Huffman tree for optimal binary encoding
+---
 
-Encodes text into compressed .hzip format
+##  File Structure
 
-Decodes .hzip back to original text
+```
+HuffmanCoding/
+├── Compression/
+│   ├── src/
+│   │   ├── main.cpp
+│   │   └── huffman.cpp
+│   ├── test.txt
+│   ├── output.hzip
+│   └── Makefile
+├── Decompression/
+│   ├── src/
+│   │   ├── main.cpp
+│   │   └── huffman.cpp
+│   ├── input.hzip
+│   ├── output.txt
+│   └── Makefile
+```
 
-Works with large text files
+---
 
-Cross-platform: macOS and Linux
+##  How to Run
 
-Technologies Used
-C++
+###  On macOS (Xcode)
 
-Xcode (macOS)
+1. Open project in Xcode  
+2. Update scheme arguments with:
+   ```
+   -f /path/to/test.txt -o /path/to/output.hzip -s
+   ```
+3. Build and run for compression or decompression.
 
-g++ Compiler (Linux)
+---
 
-Makefile for build automation
+###  On Linux (GCP / Terminal)
 
-Google Cloud Platform (GCP)
+1. Compile:
+   ```bash
+   g++ src/main.cpp src/huffman.cpp -o compress
+   ./compress -f test.txt -o output.hzip -s
+   ```
 
-CentOS
+2. Decompress:
+   ```bash
+   g++ src/main.cpp src/huffman.cpp -o decompress
+   ./decompress -f output.hzip -o output.txt -s
+   ```
 
-File Structure
-css
-Copy
-Edit
-Compression/
-├── main.cpp
-├── huffman.cpp
-├── test.txt
-├── output.hzip
-├── Makefile
+---
 
-Decompression/
-├── main.cpp
-├── huffman.cpp
-├── input.hzip
-├── output.txt
-├── Makefile
+## Sample Results
+
+- **Input File:** 500 KB plain text  
+- **Compressed Output:** ~180 KB  
+- **Decompressed Output:** Perfect match with original text ✅
+
+---
+
+##  Contributors
+
+- **Shri Padmavathi Manoharan** – Compression module implementation  
+- **Venkata Parupudi** – Decompression module implementation
+
